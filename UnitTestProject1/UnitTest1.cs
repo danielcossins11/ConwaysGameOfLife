@@ -87,6 +87,50 @@ namespace UnitTestProject1
         }
 
         [TestMethod]
+        public void CheckForLeftEdge()
+        {
+            List<List<bool>> map = new List<List<bool>>();
+            map.Add(new List<bool>(new bool[] { true, true, true }));
+            map.Add(new List<bool>(new bool[] { true, true, true }));
+            map.Add(new List<bool>(new bool[] { true, true, true }));
+            Cell cell = new Cell(0, 1, map);
+            Assert.AreEqual(true, cell.isOnLeftEdge());
+        }
+
+        [TestMethod]
+        public void CheckForRightEdge()
+        {
+            List<List<bool>> map = new List<List<bool>>();
+            map.Add(new List<bool>(new bool[] { true, true, true }));
+            map.Add(new List<bool>(new bool[] { true, true, true }));
+            map.Add(new List<bool>(new bool[] { true, true, true }));
+            Cell cell = new Cell(2, 1, map);
+            Assert.AreEqual(true, cell.isOnRightEdge());
+        }
+
+        [TestMethod]
+        public void CheckForTopEdge()
+        {
+            List<List<bool>> map = new List<List<bool>>();
+            map.Add(new List<bool>(new bool[] { true, true, true }));
+            map.Add(new List<bool>(new bool[] { true, true, true }));
+            map.Add(new List<bool>(new bool[] { true, true, true }));
+            Cell cell = new Cell(1, 0, map);
+            Assert.AreEqual(true, cell.isOnTopEdge());
+        }
+
+        [TestMethod]
+        public void CheckForBottomEdge()
+        {
+            List<List<bool>> map = new List<List<bool>>();
+            map.Add(new List<bool>(new bool[] { true, true, true }));
+            map.Add(new List<bool>(new bool[] { true, true, true }));
+            map.Add(new List<bool>(new bool[] { true, true, true }));
+            Cell cell = new Cell(1, 2, map);
+            Assert.AreEqual(true, cell.isOnBottomEdge());
+        }
+
+        [TestMethod]
         public void TestRule1()
         {
             List<List<bool>> map = new List<List<bool>>();
