@@ -9,23 +9,12 @@ namespace ConwaysGameOfLife
     public class FauxGameOfLife : Board
     {
         private List<List<bool>> cells = new List<List<bool>>();
-        private Dictionary<char, List<List<bool>>> font = new Dictionary<char, List<List<bool>>>();
+        //private Dictionary<char, List<List<bool>>> font = new Dictionary<char, List<List<bool>>>();
 
         
 
         public FauxGameOfLife()
         {
-            //List<List<bool>> letter = new List<List<bool>>();
-            //letter.Add(new List<bool>(new bool[] { true, true, true, true, true, true }));
-            //letter.Add(new List<bool>(new bool[] { true, false, true, true, false, true }));
-            //letter.Add(new List<bool>(new bool[] { true, false, true, true, false, true }));
-            //letter.Add(new List<bool>(new bool[] { true, false, false, false, false, true }));
-            //letter.Add(new List<bool>(new bool[] { true, false, true, true, false, true }));
-            //letter.Add(new List<bool>(new bool[] { true, false, true, true, false, true }));
-            //letter.Add(new List<bool>(new bool[] { true, true, true, true, true, true }));
-            //font['H'] = letter;
-
-
 
             Tick();
         }
@@ -37,14 +26,8 @@ namespace ConwaysGameOfLife
 
         public void Tick()
         {
-            //if(index >= phrase.Length)
-            //{
-            //    index = 0;
-            //}
-            //char letter = phrase[index];
-            //cells = font[letter];
-            //index++;
             cells = getBlank();
+            //Cell cell = new Cell();
         }
 
         public List<List<bool>> getBlank()

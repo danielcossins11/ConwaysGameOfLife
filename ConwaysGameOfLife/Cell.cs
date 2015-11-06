@@ -6,8 +6,16 @@ using System.Threading.Tasks;
 
 namespace ConwaysGameOfLife
 {
-    class Cell
+    public class Cell
     {
-        
+        private bool alive = false;
+        private int x;
+        private int y;
+        public Cell(int a, int b)
+        {
+            x = a;
+            y = b;
+        }
+
     }
 }
