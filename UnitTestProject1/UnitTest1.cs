@@ -21,9 +21,23 @@ namespace UnitTestProject1
         }
 
         [TestMethod]
-        public void MyTestMethod()
+        public void CheckIfCellIsAlive()
         {
+            List<List<bool>> map = new List<List<bool>>();
+            map.Add(new List<bool>(new bool[] { true, false }));
+            map.Add(new List<bool>(new bool[] { false, false }));
+            Cell cell = new Cell(0, 0, map);
+            Assert.AreEqual(cell.isAlive(), true);
+        }
 
+        [TestMethod]
+        public void CheckIfIndexIsCorrect()
+        {
+            List<List<bool>> map = new List<List<bool>>();
+            map.Add(new List<bool>(new bool[] { false, false }));
+            map.Add(new List<bool>(new bool[] { false, true }));
+            Cell cell = new Cell(1, 1, map);
+            Assert.AreEqual(cell.isAlive(), true);
         }
     }
 }

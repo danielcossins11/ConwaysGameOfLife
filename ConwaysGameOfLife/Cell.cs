@@ -18,7 +18,28 @@ namespace ConwaysGameOfLife
             x = a;
             y = b;
             map = list;
+            if (map[y][x] == true)
+            {
+                alive = true;
+            }
+            else
+            {
+                alive = false;
+            }
+        }
+
+        public bool isAlive()
+        {
+            return alive;
         }
         
+        public void checkHorizontal()
+        {
+            //for(int i=0; i<map[y].Count(); i++)
+            //{
+
+            //}
+            //if(map[y][x] == true)
+        }
     }
 }
