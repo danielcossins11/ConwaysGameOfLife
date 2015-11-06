@@ -35,9 +35,9 @@ namespace UnitTestProject1
         public void CheckIfIndexIsCorrect()
         {
             List<List<bool>> map = new List<List<bool>>();
-            map.Add(new List<bool>(new bool[] { false, false }));
             map.Add(new List<bool>(new bool[] { false, true }));
-            Cell cell = new Cell(1, 1, map);
+            map.Add(new List<bool>(new bool[] { false, false }));
+            Cell cell = new Cell(1, 0, map);
             Assert.AreEqual(true, cell.isAlive());
         }
 
@@ -81,8 +81,11 @@ namespace UnitTestProject1
         public void TestRule1()
         {
             List<List<bool>> map = new List<List<bool>>();
-            map.Add(new List<bool>(new bool[] { true }));
-            Cell cell = new Cell(0, 0, map);
+            map.Add(new List<bool>(new bool[] { false, false, false }));
+            map.Add(new List<bool>(new bool[] { false, true, false }));
+            map.Add(new List<bool>(new bool[] { false, false, false }));
+            Cell cell = new Cell(1, 1, map);
+            cell.getAliveNeighbors();
             cell.rule1();
             Assert.AreEqual(false, cell.isAlive());
         }
@@ -92,11 +95,25 @@ namespace UnitTestProject1
         {
             List<List<bool>> map = new List<List<bool>>();
             map.Add(new List<bool>(new bool[] { false, false, false }));
-            map.Add(new List<bool>(new bool[] { false, true, false }));
+            map.Add(new List<bool>(new bool[] { false, false, false }));
             map.Add(new List<bool>(new bool[] { true, true, false }));
             Cell cell = new Cell(1, 1, map);
+            cell.getAliveNeighbors();
             cell.rule2();
             Assert.AreEqual(true, cell.isAlive());
+        }
+
+        [TestMethod]
+        public void TestRule3()
+        {
+            List<List<bool>> map = new List<List<bool>>();
+            map.Add(new List<bool>(new bool[] { true, true, true }));
+            map.Add(new List<bool>(new bool[] { true, true, true }));
+            map.Add(new List<bool>(new bool[] { true, true, true }));
+            Cell cell = new Cell(1, 1, map);
+            cell.getAliveNeighbors();
+            cell.rule3();
+            Assert.AreEqual(false, cell.isAlive());
         }
     }
 }

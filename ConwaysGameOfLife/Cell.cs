@@ -36,6 +36,7 @@ namespace ConwaysGameOfLife
 
         public int getAliveNeighbors()
         {
+            //will have to make an exception for the border cells
             checkHorizontal();
             checkVertical();
             checkCorners();
@@ -97,6 +98,14 @@ namespace ConwaysGameOfLife
             if (nCount == 2 || nCount == 3)
             {
                 alive = true;
+            }
+        }
+
+        public void rule3()
+        {
+            if (nCount > 3)
+            {
+                alive = false;
             }
         }
     }
