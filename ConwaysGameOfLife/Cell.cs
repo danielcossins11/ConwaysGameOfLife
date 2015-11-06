@@ -83,5 +83,13 @@ namespace ConwaysGameOfLife
                 nCount++;
             }
         }
+
+        public void rule1()
+        {
+            if(nCount < 2)
+            {
+                alive = false;
+            }
+        }
     }
 }

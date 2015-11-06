@@ -76,5 +76,15 @@ namespace UnitTestProject1
             Cell cell = new Cell(1, 1, map);
             Assert.AreEqual(8, cell.getAliveNeighbors());
         }
+
+        [TestMethod]
+        public void TestRule1()
+        {
+            List<List<bool>> map = new List<List<bool>>();
+            map.Add(new List<bool>(new bool[] { true }));
+            Cell cell = new Cell(0, 0, map);
+            cell.rule1();
+            Assert.AreEqual(false, cell.isAlive());
+        }
     }
 }
