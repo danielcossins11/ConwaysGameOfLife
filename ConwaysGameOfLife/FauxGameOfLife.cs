@@ -27,7 +27,8 @@ namespace ConwaysGameOfLife
         public void Tick()
         {
             cells = getBlank();
-            //Cell cell = new Cell();
+            Cell cell = new Cell(0, 0, cells);
+
         }
 
         public List<List<bool>> getBlank()

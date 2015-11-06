@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ConwaysGameOfLife;
 
 namespace ConwaysGameOfLife
 {
@@ -11,11 +12,13 @@ namespace ConwaysGameOfLife
         private bool alive = false;
         private int x;
         private int y;
-        public Cell(int a, int b)
+        private List<List<bool>> map;
+        public Cell(int a, int b, List<List<bool>> list)
         {
             x = a;
             y = b;
+            map = list;
         }
-
+        
     }
 }
