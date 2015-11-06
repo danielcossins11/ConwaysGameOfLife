@@ -134,10 +134,8 @@ namespace UnitTestProject1
         public void TestRule1()
         {
             List<List<bool>> map = new List<List<bool>>();
-            map.Add(new List<bool>(new bool[] { false, false, false }));
-            map.Add(new List<bool>(new bool[] { false, true, false }));
-            map.Add(new List<bool>(new bool[] { false, false, false }));
-            Cell cell = new Cell(1, 1, map);
+            map.Add(new List<bool>(new bool[] { true }));
+            Cell cell = new Cell(0, 0, map);
             cell.getAliveNeighbors();
             cell.rule1();
             Assert.AreEqual(false, cell.isAlive());

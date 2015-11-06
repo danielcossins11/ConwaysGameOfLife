@@ -42,47 +42,88 @@ namespace ConwaysGameOfLife
             checkCorners();
             return nCount;
         }
+
         
         public void checkHorizontal()
         {
-            if(map[y][x+1] == true)
+            if (!isOnRightEdge())
             {
-                nCount++;
+                if (map[y][x + 1] == true)
+                {
+                    nCount++;
+                }
             }
-            if(map[y][x-1] == true)
+            if (!isOnLeftEdge())
             {
-                nCount++;
+                if (map[y][x - 1] == true)
+                {
+                    nCount++;
+                }
             }
         }
         public void checkVertical()
         {
-            if (map[y+1][x] == true)
+            if (!isOnBottomEdge())
             {
-                nCount++;
+                if (map[y + 1][x] == true)
+                {
+                    nCount++;
+                }
             }
-            if (map[y-1][x] == true)
+            if (!isOnTopEdge())
             {
-                nCount++;
+                if (map[y - 1][x] == true)
+                {
+                    nCount++;
+                }
             }
         }
         public void checkCorners()
         {
-            if (map[y + 1][x + 1] == true)
+            if(!isOnTopEdge() && !isOnRightEdge())
             {
-                nCount++;
+                if (map[y - 1][x + 1] == true)
+                {
+                    nCount++;
+                }
             }
-            if (map[y - 1][x - 1] == true)
+            if(!isOnTopEdge() && !isOnLeftEdge())
             {
-                nCount++;
+                if (map[y - 1][x - 1] == true)
+                {
+                    nCount++;
+                }
             }
-            if (map[y + 1][x - 1] == true)
+            if(!isOnBottomEdge() && !isOnLeftEdge())
             {
-                nCount++;
+                if (map[y + 1][x - 1] == true)
+                {
+                    nCount++;
+                }
             }
-            if (map[y - 1][x + 1] == true)
+            if(!isOnBottomEdge() && !isOnRightEdge())
             {
-                nCount++;
+                if (map[y + 1][x + 1] == true)
+                {
+                    nCount++;
+                }
             }
+            //if (map[y + 1][x + 1] == true)
+            //{
+            //    nCount++;
+            //}
+            //if (map[y - 1][x - 1] == true)
+            //{
+            //    nCount++;
+            //}
+            //if (map[y + 1][x - 1] == true)
+            //{
+            //    nCount++;
+            //}
+            //if (map[y - 1][x + 1] == true)
+            //{
+            //    nCount++;
+            //}
         }
 
         public bool isOnLeftEdge()
