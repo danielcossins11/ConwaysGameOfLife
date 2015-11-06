@@ -78,6 +78,15 @@ namespace UnitTestProject1
         }
 
         [TestMethod]
+        public void CheckForEdge()
+        {
+            List<List<bool>> map = new List<List<bool>>();
+            map.Add(new List<bool>(new bool[] { true }));
+            Cell cell = new Cell(0, 0, map);
+            Assert.AreEqual(true, cell.isOnEdge());
+        }
+
+        [TestMethod]
         public void TestRule1()
         {
             List<List<bool>> map = new List<List<bool>>();

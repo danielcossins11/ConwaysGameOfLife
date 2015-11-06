@@ -85,6 +85,66 @@ namespace ConwaysGameOfLife
             }
         }
 
+        public bool isOnLeftEdge()
+        {
+            if(x == 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        public bool isOnRightEdge()
+        {
+            if (x == map[y].Count-1)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        public bool isOnTopEdge()
+        {
+            if(y == 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        public bool isOnBottomEdge()
+        {
+            if (y == map.Count -1)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        public bool isOnEdge()
+        {
+            if(isOnLeftEdge() || isOnRightEdge() || isOnTopEdge() || isOnBottomEdge())
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
         public void rule1()
         {
             if(nCount < 2)
