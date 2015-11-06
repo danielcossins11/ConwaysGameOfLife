@@ -27,6 +27,12 @@ namespace ConwaysGameOfLife
             {
                 alive = false;
             }
+            //getAliveNeighbors();
+            //rule1();
+            //rule2();
+            //rule3();
+            //rule4();
+            //isAlive();
         }
 
         public bool isAlive()
@@ -36,7 +42,6 @@ namespace ConwaysGameOfLife
 
         public int getAliveNeighbors()
         {
-            //will have to make an exception for the border cells
             checkHorizontal();
             checkVertical();
             checkCorners();
@@ -216,6 +221,16 @@ namespace ConwaysGameOfLife
             {
                 alive = true;
             }
+        }
+
+        public bool doAll()
+        {
+            getAliveNeighbors();
+            rule1();
+            rule2();
+            rule3();
+            rule4();
+            return isAlive();
         }
     }
 }

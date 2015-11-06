@@ -179,5 +179,44 @@ namespace UnitTestProject1
             cell.rule4();
             Assert.AreEqual(true, cell.isAlive());
         }
+
+        [TestMethod]
+        public void TestDoAll()
+        {
+            List<List<bool>> map = new List<List<bool>>();
+            map.Add(new List<bool>(new bool[] { false, false, false, false, false, false, false, false, false, false }));
+            map.Add(new List<bool>(new bool[] { false, false, false, false, false, false, false, false, false, false }));
+            map.Add(new List<bool>(new bool[] { false, false, false, false, false, false, false, false, false, false }));
+            map.Add(new List<bool>(new bool[] { false, false, false, false, true, false, false, false, false, false }));
+            map.Add(new List<bool>(new bool[] { false, false, false, false, true, false, false, false, false, false }));
+            map.Add(new List<bool>(new bool[] { false, false, false, false, true, false, false, false, false, false }));
+            map.Add(new List<bool>(new bool[] { false, false, false, false, false, false, false, false, false, false }));
+            map.Add(new List<bool>(new bool[] { false, false, false, false, false, false, false, false, false, false }));
+            map.Add(new List<bool>(new bool[] { false, false, false, false, false, false, false, false, false, false }));
+            map.Add(new List<bool>(new bool[] { false, false, false, false, false, false, false, false, false, false }));
+            //Cell cell = new Cell(1, 1, map);
+
+            for(int y=0; y<map.Count(); y++)
+            {
+                for(int x=0; x< map[y].Count(); x++)
+                {
+                    Cell cell = new Cell(x, y, map);
+                    map[y][x] = cell.doAll();
+                }
+            }
+
+            List<List<bool>> result = new List<List<bool>>();
+            result.Add(new List<bool>(new bool[] { false, false, false, false, false, false, false, false, false, false }));
+            result.Add(new List<bool>(new bool[] { false, false, false, false, false, false, false, false, false, false }));
+            result.Add(new List<bool>(new bool[] { false, false, false, false, false, false, false, false, false, false }));
+            result.Add(new List<bool>(new bool[] { false, false, false, false, true, false, false, false, false, false }));
+            result.Add(new List<bool>(new bool[] { false, false, false, false, true, false, false, false, false, false }));
+            result.Add(new List<bool>(new bool[] { false, false, false, false, true, false, false, false, false, false }));
+            result.Add(new List<bool>(new bool[] { false, false, false, false, false, false, false, false, false, false }));
+            result.Add(new List<bool>(new bool[] { false, false, false, false, false, false, false, false, false, false }));
+            result.Add(new List<bool>(new bool[] { false, false, false, false, false, false, false, false, false, false }));
+            result.Add(new List<bool>(new bool[] { false, false, false, false, false, false, false, false, false, false }));
+            CollectionAssert.AreEqual(result, map);
+        }
     }
 }
