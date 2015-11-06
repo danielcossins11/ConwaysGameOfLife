@@ -16,6 +16,7 @@ namespace UnitTestProject1
         public void InitializeCell()
         {
             List<List<bool>> map = new List<List<bool>>();
+            map.Add(new List<bool>(new bool[] { false }));
             Cell cell = new Cell(0, 0, map);
             Assert.IsNotNull(cell);
         }
@@ -27,7 +28,7 @@ namespace UnitTestProject1
             map.Add(new List<bool>(new bool[] { true, false }));
             map.Add(new List<bool>(new bool[] { false, false }));
             Cell cell = new Cell(0, 0, map);
-            Assert.AreEqual(cell.isAlive(), true);
+            Assert.AreEqual(true, cell.isAlive());
         }
 
         [TestMethod]
@@ -37,7 +38,43 @@ namespace UnitTestProject1
             map.Add(new List<bool>(new bool[] { false, false }));
             map.Add(new List<bool>(new bool[] { false, true }));
             Cell cell = new Cell(1, 1, map);
-            Assert.AreEqual(cell.isAlive(), true);
+            Assert.AreEqual(true, cell.isAlive());
+        }
+
+        [TestMethod]
+        public void CheckNeighbors()
+        {
+            List<List<bool>> map = new List<List<bool>>();
+            map.Add(new List<bool>(new bool[] { true, false, false }));
+            //                                         cell
+            map.Add(new List<bool>(new bool[] { false, true, true }));
+            map.Add(new List<bool>(new bool[] { false, true, false }));
+            Cell cell = new Cell(1, 1, map);
+            Assert.AreEqual(3, cell.getAliveNeighbors());
+        }
+
+        [TestMethod]
+        public void CheckNeighborsWithAllDead()
+        {
+            List<List<bool>> map = new List<List<bool>>();
+            map.Add(new List<bool>(new bool[] { false, false, false }));
+            //                                         cell
+            map.Add(new List<bool>(new bool[] { false, true, false }));
+            map.Add(new List<bool>(new bool[] { false, false, false }));
+            Cell cell = new Cell(1, 1, map);
+            Assert.AreEqual(0, cell.getAliveNeighbors());
+        }
+
+        [TestMethod]
+        public void CheckNeighborsWithAllAlive()
+        {
+            List<List<bool>> map = new List<List<bool>>();
+            map.Add(new List<bool>(new bool[] { true, true, true }));
+            //                                         cell
+            map.Add(new List<bool>(new bool[] { true, false, true }));
+            map.Add(new List<bool>(new bool[] { true, true, true }));
+            Cell cell = new Cell(1, 1, map);
+            Assert.AreEqual(8, cell.getAliveNeighbors());
         }
     }
 }

@@ -13,6 +13,7 @@ namespace ConwaysGameOfLife
         private int x;
         private int y;
         private List<List<bool>> map;
+        private int nCount = 0;
         public Cell(int a, int b, List<List<bool>> list)
         {
             x = a;
@@ -32,14 +33,55 @@ namespace ConwaysGameOfLife
         {
             return alive;
         }
+
+        public int getAliveNeighbors()
+        {
+            checkHorizontal();
+            checkVertical();
+            checkCorners();
+            return nCount;
+        }
         
         public void checkHorizontal()
         {
-            //for(int i=0; i<map[y].Count(); i++)
-            //{
-
-            //}
-            //if(map[y][x] == true)
+            if(map[y][x+1] == true)
+            {
+                nCount++;
+            }
+            if(map[y][x-1] == true)
+            {
+                nCount++;
+            }
+        }
+        public void checkVertical()
+        {
+            if (map[y+1][x] == true)
+            {
+                nCount++;
+            }
+            if (map[y-1][x] == true)
+            {
+                nCount++;
+            }
+        }
+        public void checkCorners()
+        {
+            if (map[y + 1][x + 1] == true)
+            {
+                nCount++;
+            }
+            if (map[y - 1][x - 1] == true)
+            {
+                nCount++;
+            }
+            if (map[y + 1][x - 1] == true)
+            {
+                nCount++;
+            }
+            if (map[y - 1][x + 1] == true)
+            {
+                nCount++;
+            }
         }
     }
 }
