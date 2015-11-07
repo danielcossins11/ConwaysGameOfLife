@@ -201,7 +201,7 @@ namespace ConwaysGameOfLife
 
         public void rule2()
         {
-            if (nCount == 2 || nCount == 3)
+            if (nCount == 2 || nCount == 3 && isAlive())
             {
                 alive = true;
             }
