@@ -28,35 +28,42 @@ namespace ConwaysGameOfLife
 
         public void Tick()
         {
-            //cells = getBlank();
-            //Cell cell = new Cell(0, 0, cells);
-
-
-            //for(int y=0; y<cells.Count(); y++)
+            //List<List<bool>> storageCells = cells;
+            //for (int y=0; y<cells.Count(); y++)
             //{
             //    for(int x=0; x<cells[y].Count(); x++)
             //    {
-            //        Cell cell = new Cell(x, y, cells);
+            //        Cell cell = new Cell(x, y, storageCells);
             //        cells[y][x] = cell.doAll();
             //    }
             //}
 
-            cells[2][3] = true;
+
+            if(cells[0][0] == true)
+            {
+                cells[0][0] = false;
+            }
+            else
+            {
+                cells[0][0] = true;
+            }
+            //Tick();
         }
 
         public List<List<bool>> getBlank()
         {
             List<List<bool>> blank = new List<List<bool>>();
-            blank.Add(new List<bool>(new bool[] { false, false, false, false, false, false, false, false, false, false }));
-            blank.Add(new List<bool>(new bool[] { false, false, false, false, false, false, false, false, false, false }));
-            blank.Add(new List<bool>(new bool[] { false, false, false, false, false, false, false, false, false, false }));
-            blank.Add(new List<bool>(new bool[] { false, false, false, false, true, false, false, false, false, false }));
-            blank.Add(new List<bool>(new bool[] { false, false, false, false, true, false, false, false, false, false }));
-            blank.Add(new List<bool>(new bool[] { false, false, false, false, true, false, false, false, false, false }));
-            blank.Add(new List<bool>(new bool[] { false, false, false, false, false, false, false, false, false, false }));
-            blank.Add(new List<bool>(new bool[] { false, false, false, false, false, false, false, false, false, false }));
-            blank.Add(new List<bool>(new bool[] { false, false, false, false, false, false, false, false, false, false }));
-            blank.Add(new List<bool>(new bool[] { false, false, false, false, false, false, false, false, false, false }));
+            //blank.Add(new List<bool>(new bool[] { false, false, false, false, false, false, false, false, false, false }));
+            //blank.Add(new List<bool>(new bool[] { false, false, false, false, false, false, false, false, false, false }));
+            //blank.Add(new List<bool>(new bool[] { false, false, false, false, false, false, false, false, false, false }));
+            //blank.Add(new List<bool>(new bool[] { false, false, false, false, true, false, false, false, false, false }));
+            //blank.Add(new List<bool>(new bool[] { false, false, false, false, true, false, false, false, false, false }));
+            //blank.Add(new List<bool>(new bool[] { false, false, false, false, true, false, false, false, false, false }));
+            //blank.Add(new List<bool>(new bool[] { false, false, false, false, false, false, false, false, false, false }));
+            //blank.Add(new List<bool>(new bool[] { false, false, false, false, false, false, false, false, false, false }));
+            //blank.Add(new List<bool>(new bool[] { false, false, false, false, false, false, false, false, false, false }));
+            //blank.Add(new List<bool>(new bool[] { false, false, false, false, false, false, false, false, false, false }));
+            blank.Add(new List<bool>(new bool[] { false }));
             return blank;
         }
     }

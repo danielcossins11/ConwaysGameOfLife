@@ -193,33 +193,45 @@ namespace ConwaysGameOfLife
 
         public void rule1()
         {
-            if(nCount < 2)
+            if (isAlive())
             {
-                alive = false;
+                if (nCount < 2)
+                {
+                    alive = false;
+                }
             }
         }
 
         public void rule2()
         {
-            if (nCount == 2 || nCount == 3 && isAlive())
+            if (isAlive())
             {
-                alive = true;
+                if (nCount == 2 || nCount == 3)
+                {
+                    alive = true;
+                }
             }
         }
 
         public void rule3()
         {
-            if (nCount > 3)
+            if (isAlive())
             {
-                alive = false;
+                if (nCount > 3)
+                {
+                    alive = false;
+                }
             }
         }
 
         public void rule4()
         {
-            if (nCount == 3)
+            if (!isAlive())
             {
-                alive = true;
+                if (nCount == 3)
+                {
+                    alive = true;
+                }
             }
         }
 
