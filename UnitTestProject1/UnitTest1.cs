@@ -194,12 +194,9 @@ namespace UnitTestProject1
                     map[y][x] = cell.doAll();
                 }
             }
-            //Cell cell = new Cell(0, 0, storageMap);
-            //map[0][0] = cell.doAll();
 
             List<List<bool>> result = new List<List<bool>>();
             result.Add(new List<bool>(new bool[] { false }));
-            //only working with each individual line
             CollectionAssert.AreEqual(result[0], map[0]);
         }
 
